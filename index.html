@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet' />
+    <title>Travel Blog</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
+        </script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        </script>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .cardGaps {
+            padding: 10vh;
+            margin-top: -3vh;
+        }
+
+        .section__container,
+        .client__container {
+            padding: 10vh;
+        }
+
+        .client__container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* padding: 20px; */
+        }
+
+
+        .people {
+            padding-left: 20vw;
+            padding-right: 20vw;
+            padding-top: 10vh;
+            padding-bottom: 10vh;
+        }
+
+        .people1 {
+            padding-left: 20vw;
+            padding-right: 20vw;
+            padding-top: 0vh;
+            padding-bottom: 10vh;
+            margin-top: 6vh;
+        }
+
+        footer.nb-footer {
+            background: #222;
+            border-top: 4px solid #b78c33;
+        }
+
+        footer.nb-footer .about {
+            margin: 0 auto;
+            margin-top: 40px;
+            max-width: 1170px;
+            text-align: center;
+        }
+
+        footer.nb-footer .about p {
+            font-size: 13px;
+            color: #999;
+            margin-top: 30px;
+        }
+
+        footer.nb-footer .about .social-media {
+            margin-top: 15px;
+        }
+
+        footer.nb-footer .about .social-media xl lx a {
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            border-radius: 50%;
+            font-size: 16px;
+            color: #b78c33;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        footer.nb-footer .about .social-media xl lx a:hover {
+            background: #b78c33;
+            color: #fff;
+            border-color: #b78c33;
+        }
+
+        footer.nb-footer .footer-info-single {
+            margin-top: 30px;
+        }
+
+        footer.nb-footer .footer-info-single .title {
+            color: #aaa;
+            text-transform: uppercase;
+            font-size: 16px;
+            border-left: 4px solid #b78c33;
+            padding-left: 5px;
+        }
+
+        footer.nb-footer .footer-info-single xl lx a {
+            display: block;
+            color: #aaa;
+            padding: 2px 0;
+        }
+
+        footer.nb-footer .footer-info-single xl lx a:hover {
+            color: #b78c33;
+        }
+
+        footer.nb-footer .footer-info-single p {
+            font-size: 13px;
+            line-height: 20px;
+            color: #aaa;
+        }
+
+        footer.nb-footer .copyright {
+            margin-top: 15px;
+            background: #111;
+            padding: 7px 0;
+            color: #999;
+        }
+
+        footer.nb-footer .copyright p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container-fluid.main {
+            position: relative;
+            /* To make the navbar positions relative to this container */
+            padding: 0;
+        }
+
+        .carousel .background {
+            background-position: center center;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            height: 673px;
+        }
+
+        @media (max-width:991px) {
+            .carousel .background {
+                background-size: cover;
+                /* To make the background image looks good */
+            }
+        }
+
+        .carousel .background.a {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://static.pexels.com/photos/92090/pexels-photo-92090-large.jpeg");
+        }
+
+        .carousel .background.b {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://static.pexels.com/photos/93750/pexels-photo-93750-large.jpeg");
+        }
+
+        .carousel .background.c {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://static.pexels.com/photos/76827/bahia-ocean-bay-boat-76827-large.jpeg");
+        }
+
+        .carousel-fade .carousel-inner .item {
+            opacity: 0;
+            transition: opacity 0.5s;
+            /* The 0.5s describes the duration to make the opacity from 0 to 1 */
+        }
+
+        .carousel-fade .carousel-inner .active {
+            opacity: 1;
+        }
+
+        /* CSS Hack to trigger GPU for smooth transition */
+        @media all and (transform-3d),
+        (-webkit-transform-3d) {
+
+            .carousel-fade .carousel-inner>.item.next,
+            .carousel-fade .carousel-inner>.item.active.right {
+                opacity: 0;
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+
+            .carousel-fade .carousel-inner>.item.prev,
+            .carousel-fade .carousel-inner>.item.active.left {
+                opacity: 0;
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+
+            .carousel-fade .carousel-inner>.item.next.left,
+            .carousel-fade .carousel-inner>.item.prev.right,
+            .carousel-fade .carousel-inner>.item.active {
+                opacity: 1;
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        /* CSS Hack to trigger GPU for smooth transition */
+
+        .covertext {
+            position: absolute;
+            /* To make the div to be place anywhere. It is out of the document flow */
+            top: 200px;
+            /* The distance between the div with the top of document */
+            left: 0px;
+            /* Make the div full width */
+            right: 0px;
+            /* Make the div full width */
+        }
+
+        .title {
+            font-family: Verdana;
+            font-weight: 600;
+            font-size: 60px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .subtitle {
+            font-family: Verdana;
+            font-size: 23px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .explore {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .explore .btn-lg,
+        .explore .btn-lg:hover {
+            border-radius: 30px;
+            padding: 15px 25px;
+            font-size: 22px;
+            background-image: none;
+            background-color: #FF4000;
+            border-color: #FF4000;
+            color: #ffffff;
+            margin-top: 2vh;
+        }
+
+        .btn,
+        .btn:hover {
+            border-radius: 0px;
+            background-image: none;
+            background-color: #FF4000;
+            border-color: #FF4000;
+            color: #ffffff;
+            margin-bottom: 20px;
+            box-shadow: none;
+            outline: none;
+        }
+
+        .btn:focus,
+        .btn:active:focus,
+        .btn.active:focus,
+        .btn.focus,
+        .btn:active.focus,
+        .btn.active.focus {
+            color: #ffffff;
+            outline: none;
+        }
+
+        .heading1 {
+            text-align: center;
+            margin-top: -175vh;
+            font-family: 'Arial', sans-serif;
+            font-size: 3rem;
+            color: #FF4000;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .heading {
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            font-size: 3rem;
+            color: #FF4000;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+
+        }
+
+        @import url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,700);
+
+        body {
+            font-family: Rubik, sans-serif;
+            position: relative;
+            font-weight: 400;
+            font-size: 15px
+        }
+
+        ul {
+            padding: 0;
+            margin: 0
+        }
+
+        li {
+            list-style: none
+        }
+
+        a:focus,
+        a:hover {
+            text-decoration: none;
+            -webkit-transition: .3s ease;
+            -o-transition: .3s ease;
+            transition: .3s ease
+        }
+
+        a:focus {
+            outline: 0
+        }
+
+        img {
+            max-width: 100%
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 30px;
+            color: #898b96;
+            font-weight: 300
+        }
+
+        h4 {
+            font-family: Rubik, sans-serif;
+            margin: 0;
+            font-weight: 400;
+            padding: 0;
+            color: #fff;
+        }
+
+        a {
+            color: #5867dd
+        }
+
+        .no-padding {
+            padding: 0 !important
+        }
+
+
+        .footer-big {
+            padding: 105px 0 65px 0
+        }
+
+        .footer-big .footer-widget {
+            margin-bottom: 40px
+        }
+
+        .footer--light {
+            background: #FF4000;
+        }
+
+        .footer-big .footer-menu ul li a,
+        .footer-big p,
+        .footer-big ul li {
+            color: #fff;
+        }
+
+        .footer-menu {
+            padding-left: 48px;
+        }
+
+        .footer-menu ul li a {
+            font-size: 15px;
+            line-height: 32px;
+            -webkit-transition: .3s;
+            -o-transition: .3s;
+            transition: .3s;
+        }
+
+        .footer-menu ul li a:hover {
+            color: #5867dd
+        }
+
+        .footer-menu--1 {
+            width: 100%
+        }
+
+        .footer-widget-title {
+            line-height: 42px;
+            margin-bottom: 10px;
+            font-size: 18px
+        }
+
+        .mini-footer {
+            background: #192027;
+            text-align: center;
+            padding: 32px 0
+        }
+
+        .mini-footer p {
+            margin: 0;
+            line-height: 26px;
+            font-size: 15px;
+            color: #999
+        }
+
+        .mini-footer p a {
+            color: #5867dd
+        }
+
+        .mini-footer p a:hover {
+            color: #34bfa3
+        }
+
+        .widget-about img {
+            display: block;
+            margin-bottom: 30px
+        }
+
+        .widget-about p {
+            font-weight: 400
+        }
+
+        .widget-about .contact-details {
+            margin: 30px 0 0 0
+        }
+
+        .widget-about .contact-details li {
+            margin-bottom: 10px
+        }
+
+        .widget-about .contact-details li:last-child {
+            margin-bottom: 0
+        }
+
+        .widget-about .contact-details li span {
+            padding-right: 12px
+        }
+
+        .widget-about .contact-details li a {
+            color: #5867dd
+        }
+
+        @media (max-width:991px) {
+            .footer-menu {
+                padding-left: 0
+            }
+        }
+
+        .element {
+            text-decoration: none;
+        }
+
+        .section__header {
+            margin-bottom: 0.5rem;
+            columns: var(--text-dark);
+            text-align: center;
+            margin-top: -3vh;
+            font-size: 3rem;
+            color: #FF4000;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            display: block;
+            font-size: 1.5em;
+            margin-block-start: 0.83em;
+            margin-block-end: 0.83em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-weight: bold;
+            unicode-bidi: isolate;
+        }
+
+        .section__description {
+            font-weight: 500;
+            font-family: var(--header-font);
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        p {
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            unicode-bidi: isolate;
+        }
+
+        .swiper {
+            width: 100%;
+            padding-block: 4rem;
+        }
+
+        .swiper-horizontal {
+            touch-action: pan-y;
+        }
+
+        .swiper {
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            overflow: hidden;
+            list-style: none;
+            padding: 0;
+            z-index: 1;
+            display: block;
+        }
+
+        div {
+            display: block;
+            unicode-bidi: isolate;
+        }
+
+        .swiper-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            display: flex;
+            transition-property: transform;
+            transition-timing-function: var(--swiper-wrapper-transition-timing-function, initial);
+            box-sizing: content-box;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+
+
+        .swiper {
+            width: 100%;
+            padding-block: 4rem;
+        }
+
+        .swiper-slide {
+            max-width: calc((var(--max-width) / 3) - 1.5rem);
+        }
+
+        .client__card {
+            padding: 2rem 1rem;
+            text-align: center;
+            background-color: var(--white);
+            box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.05);
+            width: 300px;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .client__card img {
+            max-width: 80px;
+            margin-inline: auto;
+            margin-bottom: 1rem;
+            border-radius: 100%;
+            box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .client__card span {
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .client__card p {
+            margin-bottom: 2rem;
+            color: var(--text-light);
+            line-height: 1.5rem;
+        }
+
+        .client__card h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .client__card h5 {
+            font-size: 1rem;
+            font-weight: 500;
+            font-family: var(--header-font);
+            color: var(--text-light);
+        }
+    </style>
+    <!-- <script>
+        $('.carousel').carousel({
+            pause: "false" /* Change to true to make it paused when your mouse cursor enter the background */
+        });
+        const swiper = new Swiper(".swiper", {
+            slidesPerView: "auto",
+            spaceBetween: 20,
+            pagination: {
+                el: ".swiper-pagination",
+            },
+        });
+    </script> -->
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Travel<span style="color: #FF4000;">Buddy</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" role="button" aria-expanded="false">
+                            About Us
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" role="button">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Carousel -->
+    <div class="container-fluid main">
+        <div id="myCarousel" class="carousel carousel-fade slide" data-ride="carousel" data-interval="3000">
+            <div class="carousel-inner" role="listbox">
+                <div class="item active background a"></div>
+                <div class="item background b"></div>
+                <div class="item background c"></div>
+            </div>
+        </div>
+
+        <div class="covertext">
+            <div class="col-lg-10" style="float:none; margin:0 auto;">
+                <h1 class="title">TRAVEL-BUDDY</h1>
+                <h3 class="subtitle">Live life with no excuses, travel with no regret.</h3>
+            </div>
+            <div class="col-xs-12 explore">
+                <a href="https://www.incredibleindia.gov.in/en"><button type="button" class="btn btn-lg explorebtn">EXPLORE</button></a>
+            </div>
+        </div>
+
+    </div>
+
+    <!--Card Heading-->
+    <h1 class="heading1">Start Your Journey<span
+            style="display: block; width: 150px; height: 4px; background-color: #FF4000; margin: 10px auto 0; border-radius: 2px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);"></span>
+    </h1>
+
+    <!--Cards-->
+    <div class="cardGaps">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="manali.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><b>Manali</b></h5>
+                        <p class="card-text">A picturesque Himalayan town known for its snow-capped peaks, adventure
+                            sports, and vibrant culture.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://himachaltourism.gov.in/destination/manali/" class="btn btn-primary">Explore
+                            Here</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="ooty.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><b>Ooty</b></h5>
+                        <p class="card-text">A serene hill station in Tamil Nadu, offering misty mountains, tea gardens,
+                            and colonial charm.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://www.tamilnadutourism.tn.gov.in/destinations/ooty"
+                            class="btn btn-primary">Explore Here</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="goa.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><b>Goa</b></h5>
+                        <p class="card-text">India's beach paradise, famous for its golden sands, vibrant nightlife, and
+                            Portuguese heritage.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://goa-tourism.com/" class="btn btn-primary">Explore Here</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="kerala.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><b>Kerala</b></h5>
+                        <p class="card-text">A tranquil haven of backwaters, lush greenery, and Ayurvedic wellness,
+                            often called "God's Own Country."</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://www.keralatourism.org/" class="btn btn-primary">Explore Here</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="sikkim.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><b>Sikkim</b></h5>
+                        <p class="card-text">A mystical northeastern state adorned with monasteries, majestic mountains,
+                            and vibrant festivals.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://sikkimtourism.gov.in/" class="btn btn-primary">Explore Here</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="jaipur.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><b>Jaipur</b></h5>
+                        <p class="card-text">The Pink City of India, renowned for its royal palaces, vibrant bazaars,
+                            and rich Rajasthani culture.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://www.tourism.rajasthan.gov.in/jaipur.html" class="btn btn-primary">Explore
+                            Here</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reviews -->
+    <section class="section__container client__container" id="client">
+        <h1 class="section__header">Client Reviews</h1>
+        <span
+            style="display: block; width: 150px; height: 4px; background-color: #FF4000; margin: 10px auto 0; border-radius: 2px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);"></span>
+        <p class="section__description">
+            We have many happy customers who booked holidays with us!!
+        </p>
+        <!-- Slider main container -->
+        <div class="swiper swiper-initialized swiper-horizontal swiper-backface-hidden">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper" id="swiper-wrapper-8567f2c16ba0ae90" aria-live="polite"
+                style="transform: translate3d(0px, 0px, 0px);">
+                <!-- Slides -->
+                <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 5"
+                    style="margin-right: 20px;">
+                    <div class="client__card">
+                        <img src="client-1.jpg" alt="client">
+                        <span><i class="ri-double-quotes-l"></i></span>
+                        <p>
+                            "The instant booking feature is a game-changer. I secured my
+                            dream vacation to Ooty in minutes!"
+                        </p>
+                        <h4>Michael Lee</h4>
+                        <h5>Software Engineer</h5>
+                    </div>
+                </div>
+                <div class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 5" style="margin-right: 20px;">
+                    <div class="client__card">
+                        <img src="client-2.jpg" alt="client">
+                        <span><i class="ri-double-quotes-l"></i></span>
+                        <p>
+                            "TravelBuddy made my vacation planning effortless and enjoyable.
+                            Their best price guarantee really delivered!"
+                        </p>
+                        <h4>Sarah Johnson</h4>
+                        <h5>Marketing Manager</h5>
+                    </div>
+                </div>
+                <div class="swiper-slide" role="group" aria-label="4 / 5" style="margin-right: 20px;">
+                    <div class="client__card">
+                        <img src="client-4.jpg" alt="client">
+                        <span><i class="ri-double-quotes-l"></i></span>
+                        <p>
+                            "Booking with TravelBuddy was a breeze. Their user-friendly
+                            interface and instant confirmation saved me so much time."
+                        </p>
+                        <h4>Olivia Brown</h4>
+                        <h5>Event Planner</h5>
+                    </div>
+                </div>
+                <div class="swiper-slide" role="group" aria-label="5 / 5" style="margin-right: 20px;">
+                    <div class="client__card">
+                        <img src="client-5.jpg" alt="client">
+                        <span><i class="ri-double-quotes-l"></i></span>
+                        <p>
+                            "From booking to travel, every step was seamless. TravelBuddy
+                            truly makes travel dreams come true!"
+                        </p>
+                        <h4>James Wilson</h4>
+                        <h5>Photographer</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination swiper-pagination-bullets swiper-pagination-horizontal"><span
+                    class="swiper-pagination-bullet swiper-pagination-bullet-active" aria-current="true"></span><span
+                    class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span></div>
+            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+        </div>
+    </section>
+
+
+    <!--FAQs Heading-->
+    <h1 class="heading">FAQs<span
+            style="display: block; width: 65px; height: 4px; background-color: #FF4000; margin: 10px auto 0; border-radius: 2px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);"></span>
+    </h1>
+
+    <!-- FAQs -->
+    <div class="people1">
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        How do I choose the best travel destination?
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <p>Consider your interests, budget, travel companions, weather, and cultural preferences. Use
+                            travel guides and online reviews for inspiration.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        How do I stay safe while traveling?
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <p>Research the destination, avoid unsafe areas, keep valuables secure, and stay aware of your
+                            surroundings.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        When is the best time to book flights?
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <p>Generally, booking flights 1–3 months in advance for domestic travel and 2–8 months for
+                            international travel gets the best prices.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-area footer--light">
+        <div class="footer-big">
+            <!-- start .container -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3 col-md-6 col-sm-12">
+                        <div class="footer-widget">
+                            <div class="widget-about">
+                                <img src="https://www.misrtravel.net/uploads/general_edit_content/f30103d4cb46286d4dff4ff1417bb21f.png"
+                                    alt="" class="img-fluid">
+                                <p>Enter your email below and stay up to date with the latest travel information and
+                                    deals!</p>
+                                <ul class="contact-details">
+                                    <form>
+                                        <li>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                </div>
+
+                                                <input type="text" class="form-control"
+                                                    id="inlineFormInputGroupUsername"
+                                                    placeholder="Enter your email address"
+                                                    style="margin-right: 0vh; border-radius: 2px;" />
+                                                <button type="button"
+                                                    class="travel-link travel-input-big nowrap rounded-right"
+                                                    style="background-color: #ff5722; color: #fff; border: none; font-size: 1.9vh; border-radius: 2px; font-weight: bold; text-transform: uppercase;">Sign
+                                                    up</button>
+
+                                            </div>
+                                        </li>
+                                    </form>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Ends: .footer-widget -->
+                    </div>
+                    <!-- end /.col-md-4 -->
+
+                    <div class="col-xl-3 col-md-6 col-sm-4">
+                        <div class="footer-widget">
+                            <div class="footer-menu footer-menu--1">
+                                <h4 class="footer-widget-title">About Us</h4>
+                                <ul>
+                                    <li>
+                                        <a class="element" href="">Terms &amp; Conditions</a>
+                                    </li>
+                                    <li>
+                                        <a class="element" href="">Chairman Message</a>
+                                    </li>
+                                    <li>
+                                        <a class="element" href="">Privacy Policy</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- end /.footer-menu -->
+                        </div>
+                        <!-- Ends: .footer-widget -->
+                    </div>
+                    <!-- end /.col-md-3 -->
+
+
+                    <div class="col-xl-3 col-md-6 col-sm-4">
+                        <div class="footer-widget">
+                            <div class="footer-menu">
+                                <h4 class="footer-widget-title">Our Company</h4>
+                                <ul>
+                                    <li>
+                                        <a class="element" href="#">Our Story</a>
+                                    </li>
+                                    <li>
+                                        <a class="element" href="#">Travel Programs</a>
+                                    </li>
+                                    <li>
+                                        <a class="element" href="#">Travel Management</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- end /.footer-menu -->
+                        </div>
+                        <!-- Ends: .footer-widget -->
+                    </div>
+                    <!-- end /.col-lg-3 -->
+
+                    <div class="col-xl-3 col-md-6 col-sm-4">
+                        <div class="footer-widget">
+                            <div class="footer-menu no-padding">
+                                <h4 class="footer-widget-title">Featured Tours</h4>
+                                <ul>
+                                    <li>
+                                        <a class="element" href="#">Tours &amp; Packages</a>
+                                    </li>
+                                    <li>
+                                        <a class="element" href="#">Multi Country Tours</a>
+                                    </li>
+                                    <li>
+                                        <a class="element" href="#">Specials</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- end /.footer-menu -->
+                        </div>
+                        <!-- Ends: .footer-widget -->
+                    </div>
+                    <!-- Ends: .col-lg-3 -->
+
+
+                </div>
+                <!-- end /.row -->
+            </div>
+            <!-- end /.container -->
+        </div>
+        <!-- end /.footer-big -->
+
+        <div class="mini-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="copyright-text">
+                            <p>&#169; 2024 TravelBuddy Copyright all rights reserved</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
